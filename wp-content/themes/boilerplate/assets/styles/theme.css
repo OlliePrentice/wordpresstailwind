@@ -1,0 +1,24 @@
+a {
+    @apply transition;
+
+    span {
+        transition: none;
+    }
+}
+
+.btn {
+    text-decoration: none;
+    text-transform: uppercase;
+
+    @apply tracking-widest;
+    @apply text-xxs;
+    @apply py-3;
+    @apply px-5;
+    @apply bg-indigo-500;
+    @apply rounded;
+    @apply text-white;
+    @apply font-semibold;
+    @apply transition;
+
+    @apply hover:bg-indigo-600;
+}
