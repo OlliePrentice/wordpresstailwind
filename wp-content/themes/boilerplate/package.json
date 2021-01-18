@@ -16,10 +16,13 @@
     "autoprefixer": "^10.0.2",
     "cross-env": "^6.0.3",
     "laravel-mix": "^6.0.0",
-    "postcss": "^8.2.1",
+    "postcss": "^8.2.2",
+    "postcss-custom-properties": "^11.0.0",
+    "postcss-hexrgba": "^2.0.1",
     "postcss-import": "^14.0.0",
     "postcss-mixins": "^7.0.2",
     "postcss-nested": "^5.0.3",
+    "postcss-variables": "^1.1.1",
     "tailwindcss": "^2.0.2"
   },
   "dependencies": {
@@ -27,6 +30,8 @@
     "@fancyapps/fancybox": "^3.5.7",
     "aos": "^2.3.4",
     "core-js": "^3.7.0",
+    "gsap": "^3.6.0",
+    "headroom.js": "^0.12.0",
     "imagesloaded": "^4.1.4",
     "infinite-scroll": "^3.0.6",
     "jquery": "^3.5.1",

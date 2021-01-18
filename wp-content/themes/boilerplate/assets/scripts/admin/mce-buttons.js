@@ -5,7 +5,6 @@
             icon: 'icon dashicons-post-status',
             onclick: function () {
                 // change the shortcode as per your requirement
-                console.log(editor);
                 editor.windowManager.open({
                     title: 'Insert ID Tag',
                     body: [

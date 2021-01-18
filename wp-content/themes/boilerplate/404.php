@@ -2,6 +2,6 @@
 
 get_header();
 
-get_component('error');
+get_template_part('error');
 
 get_footer();

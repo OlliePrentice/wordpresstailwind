@@ -1,20 +1,13 @@
-/*
-Theme Name: Rehearsed
-Description: Bespoke Wordpress Template
-Author: Rehearsed
-Author URI: https://rehearsed.com/
-Version: 1.0.0
-Text Domain: rehearsed
-*/
-
-@import "tailwindcss/base";
-
-@import "tailwindcss/components";
-
-@import "tailwindcss/utilities";
+@import "../../node_modules/tailwindcss/base";
+@import "../../node_modules/tailwindcss/components";
+@import "../../node_modules/tailwindcss/utilities";
 
 @import "wp-core.css";
 @import "theme.css";
+@import "typography.css";
+@import "form.css";
 
-@import "structure/header.css";
+@import "structures/header.css";
 
+@import "components/burger.css";
+@import "components/mobile-navigation.css";

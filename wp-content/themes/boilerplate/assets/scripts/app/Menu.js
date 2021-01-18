@@ -1,11 +1,9 @@
 function Menu() {
     const $masthead = $(".masthead"),
         $burger = $(".burger"),
-        $navigation = $('.masthead__navigation'),
         $mobileNav = $(".mobile-navigation"),
         $closeModal = $('.close-modal'),
-        $searchTrigger = $('.search-trigger'),
-        $mastfoot = $('.mastfoot');
+        $searchTrigger = $('.search-trigger');
 
     let animating = false;
 
@@ -67,6 +65,42 @@ function Menu() {
         //Search Modal
     });
 
+
+    function menuItemStates($this, type) {
+
+        if(type === 'leave') {
+            $this.removeClass('active');
+            $this.find('li').removeClass('active');
+        } else {
+            if (!$this.closest('li').hasClass('active')) {
+                //$this.closest('li').addClass('active');
+                $('.menu-item-has-children').removeClass('active');
+                $this.parents('li').addClass('active');
+                $this.addClass('active');
+            } else {
+                if (type === 'click') {
+                    $this.removeClass('active');
+                    $this.find('li').removeClass('active');
+                }
+            }
+        }
+
+        if($('.masthead .menu-item-has-children.active').length) {
+            $masthead.addClass('active-hovered');
+        } else {
+            $masthead.removeClass('active-hovered');
+        }
+    }
+
+
+    $masthead.find('.menu-item-has-children').on('mouseenter', (e) => {
+        //const $this = $(e.currentTarget)
+        menuItemStates($(e.currentTarget), 'enter');
+    });
+
+    $masthead.find('.menu-item-has-children').on('mouseleave', (e) => {
+        menuItemStates($(e.currentTarget), 'leave');
+    });
 
     // const updateScroll = () => {
     //     if (updateScroll._tick) {

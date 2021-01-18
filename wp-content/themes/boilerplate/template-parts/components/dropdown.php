@@ -4,7 +4,7 @@
  * Component: Dropdown
  */
 
-$_post = get_query_var('data');
+$_post = $args;
 
 ?>
 

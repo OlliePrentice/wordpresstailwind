@@ -5,7 +5,7 @@ function scrollTo() {
 
         if ($scrollToEl.length) {
             $('html, body').animate({
-                scrollTop: $scrollToEl.offset().top - 70
+                scrollTop: $scrollToEl.offset().top - $('.main-header').outerHeight()
             }, 500);
         }
 
@@ -16,7 +16,7 @@ function scrollTo() {
 
         if($this.attr('href') !== '#') {
             $('html, body').animate({
-               scrollTop: $($this.attr('href')).offset().top
+               scrollTop: $($this.attr('href')).offset().top - $('.main-header').outerHeight()
             }, 600);
         }
 

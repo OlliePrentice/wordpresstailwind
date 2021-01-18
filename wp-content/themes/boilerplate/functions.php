@@ -7,7 +7,9 @@ Directory
 define('DIR', dirname(__FILE__));
 
 // Load Composer’s autoloader
-require_once (DIR . '/vendor/autoload.php');
+if (file_exists(get_theme_file_path("/vendor/autoload.php"))) {
+    require_once(DIR . '/vendor/autoload.php');
+}
 
 /*
 General Functions

@@ -1,0 +1,63 @@
+.mobile-navigation {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 299;
+    width: 100%;
+    max-width: 90%;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    background: white;
+    transition: all 600ms;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    padding: 1.5rem 30px;
+    transform: translateX(100%);
+
+    @media only screen and (min-width: 768px) {
+        max-width: 700px;
+        padding: 3rem 100px;
+    }
+
+    @apply bg-off-white;
+
+    .burger {
+        margin-right: -14px;
+
+        @media only screen and (min-width: 768px) {
+            margin-right: 0;
+        }
+    }
+
+    &.active {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateX(0);
+    }
+
+    &__nav {
+
+        @apply pt-5 md:pt-10;
+
+
+        li {
+            @apply text-lg md:text-2xl lg:text-4xl mb-4 md:mb-5 last:mb-0;
+
+
+            &.large-item {
+                @apply text-2xl md:text-3xl lg:text-5xl;
+            }
+
+
+            a {
+                @apply hover:text-gray-500;
+            }
+        }
+
+
+    }
+}

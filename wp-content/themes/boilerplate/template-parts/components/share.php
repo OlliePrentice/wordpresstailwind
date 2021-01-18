@@ -7,7 +7,7 @@
 ?>
 
 <div class="share">
-    <span class="share__label"><?php _e('Share this:', 'ggs'); ?></span>
+    <span class="share__label"><?php _e('Share this:', 'theme'); ?></span>
     <ul class="share__list list-unstyled">
         <li class="share__item">
             <a href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">

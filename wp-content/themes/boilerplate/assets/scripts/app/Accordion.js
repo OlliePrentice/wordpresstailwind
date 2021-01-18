@@ -1,3 +1,5 @@
+import resizeEvent from "../utilities/triggerResizeEvent";
+
 function Accordion() {
 
     const $dropdown = $('.dropdown__trigger');
@@ -16,12 +18,14 @@ function Accordion() {
 
                 $this.next().slideDown(() => {
                     animating = false;
+                    window.dispatchEvent(resizeEvent);
                 });
             } else {
                 $this.parent().removeClass('active');
 
                 $this.next().slideUp(() => {
                     animating = false;
+                    window.dispatchEvent(resizeEvent);
                 });
             }
         }

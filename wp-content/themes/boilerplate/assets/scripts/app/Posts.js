@@ -1,9 +1,8 @@
 import resizeEvent from '../utilities/triggerResizeEvent';
 import InfiniteScroll from 'infinite-scroll';
 import imagesLoaded from 'imagesloaded';
-import AOS from 'aos';
 
-const Posts = (() => {
+function Posts() {
 
     const elem = document.querySelector('.inf-grid');
 
@@ -28,7 +27,6 @@ const Posts = (() => {
             items
         ) => {
             $(items).addClass("appended-item");
-            AOS.refresh();
             window.dispatchEvent(resizeEvent);
             infScroll.imagesLoaded( () => {
                 $(items)
@@ -42,6 +40,6 @@ const Posts = (() => {
 
     }
 
-});
+};
 
 export default Posts;

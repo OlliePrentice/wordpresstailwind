@@ -8,7 +8,7 @@ Disable the theme editor
  */
 define('DISALLOW_FILE_EDIT', true);
 
-load_theme_textdomain( 'rehearsed' );
+load_theme_textdomain( 'theme' );
 /*
 Thumbnails
 - this theme supports thumbnails
@@ -47,7 +47,7 @@ Menus
 - enable WordPress Menus
  */
 if (function_exists('register_nav_menus')) {
-    register_nav_menus(array('header' => __('Main Nav'), 'footer' => __('Footer Nav')));
+    register_nav_menus(['header' => __('Main Nav'), 'footer' => __('Footer Nav')]);
 }
 
 /*
