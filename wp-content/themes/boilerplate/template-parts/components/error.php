@@ -18,7 +18,7 @@ $button = get_field('404_button', 'options');
                 </div>
             <?php endif; ?>
             <?php if ($button) : ?>
-               <?php get_template_part('button','', $button); ?>
+               <?php get_template_part('template-parts/components/button','', $button); ?>
             <?php endif; ?>
         </div>
     </div>

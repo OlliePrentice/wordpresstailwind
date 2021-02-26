@@ -5,17 +5,14 @@ mix.disableSuccessNotifications();
 mix.setPublicPath('public');
 mix.setResourceRoot('../');
 
-mix.postCss('./assets/styles/style.css', 'styles/style.css',
-    [
+mix.sass('./assets/styles/style.scss', 'styles/style.css')
+    .options({
+    postCss: [
         tailwindcss('./tailwind.config.js'),
-        require('postcss-mixins'),
-        require('postcss-nested'),
-        require('postcss-hexrgba'),
-        require('postcss-variables'),
-        require('postcss-custom-properties'),
-        require('autoprefixer')
+        require('autoprefixer'),
+        require('postcss-custom-properties')
     ]
-);
+});
 
 
 mix.js('./assets/scripts/index.js', 'scripts/app.js');

@@ -9,8 +9,7 @@
 
                 > a {
                     &:not(.btn) {
-                        @apply font-medium;
-                        @apply py-5;
+                        @apply py-5 font-medium;
                     }
                 }
             }
@@ -20,9 +19,7 @@
         li {
             position: relative;
 
-            @apply inline-block;
-            @apply text-sm;
-            @apply m-0;
+            @apply m-0 text-sm inline-block;
 
 
             &.menu-item-has-children {
@@ -56,9 +53,8 @@
                         height: 0.4rem;
                         transform: translateY(-50%) translateX(-50%) rotate(135deg);
 
-                        @apply border-t-2;
-                        @apply border-r-2;
-                        @apply border-indigo-500;
+                        @apply border-r-2 border-t-2 border-indigo-500;
+        
                     }
                 }
             }
@@ -68,8 +64,7 @@
             display: block;
 
             &:not(.btn) {
-                @apply text-gray-400;
-                @apply hover:text-gray-600;
+                @apply text-gray-400 hover:text-gray-600;
 
                 &:after {
                     @apply border-gray-600;
@@ -86,10 +81,7 @@
             visibility: hidden;
             pointer-events: none;
 
-            @apply shadow-xl;
-            @apply rounded;
-            @apply transition;
-            @apply whitespace-nowrap;
+            @apply shadow-xl rounded transition whitespace-nowrap;
 
             transform: translateX(-50%);
 
@@ -104,8 +96,7 @@
                 border-left: .5rem solid transparent!important;
                 border-bottom: .5rem solid;
                 transform: translateX(-50%) translateY(-100%);
-                @apply border-gray-50;
-                @apply shadow-sm;
+                @apply border-gray-50 shadow-sm;
             }
 
             li {
@@ -124,12 +115,7 @@
             }
 
             a {
-                @apply py-2;
-                @apply px-5;
-                @apply bg-gray-50;
-
-                @apply hover:bg-indigo-500;
-                @apply hover:text-white;
+                @apply py-2 px-5 bg-gray-50 hover:bg-indigo-500 hover:text-white; 
 
             }
         }

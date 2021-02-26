@@ -37,6 +37,4 @@ get_template_part('template-parts/components/mobile-navigation');
 
 ?>
 
-<div class="site-outer">
-    <div class="container">
-        <main class="site-wrapper">
+<main class="site-wrapper">
