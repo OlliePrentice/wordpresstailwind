@@ -18,7 +18,7 @@
             <div class="flex-auto px-2">
                 <div class="main-header__logo">
                     <a href="<?= home_url('/'); ?>"
-                       class="main-header__logo-link text-lg font-medium text-gray-600"><?= __('Rehearsed.io', 'rehearsed'); ?></a>
+                       class="main-header__logo-link text-lg font-medium text-gray-600"><?= __('Boilerplate.io', 'rehearsed'); ?></a>
                 </div>
             </div>
             <div class="flex-initial px-2">

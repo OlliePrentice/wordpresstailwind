@@ -5,23 +5,16 @@ module.exports = {
     content: [
       './*.php',
       './template-parts/**/*.php',
-      './woocommerce/**/*.php',
       './classes/**/*.php',
       './inc/**/*.php',
-      './assets/**/*.css',
+      './assets/**/*.scss',
       './assets/**/*.js',
     ],
   },
-  darkMode: false, // or 'media' or 'class'
+  darkMode: false,
   theme: {
     extend: {
       colors: {
-        gray: {
-          200: '#f4eeee',
-          600: '#5a5b5b',
-          800: '#161619',
-          900: '#020202'
-        },
         'primary': 'var(--color-primary)',
         'secondary': 'var(--color-secondary)',
         'off-white': 'var(--color-off-white)',
@@ -45,11 +38,12 @@ module.exports = {
   },
   variants: {
     extend: {
+      display: ['important'],
       inset: ['important'],
       width: ['important'],
       margin: ['last'],
-      textColor: ['important'],
-      borderColor: ['important']
+      borderColor: ['important'],
+      textColor: ['important']
     },
   },
   plugins: [

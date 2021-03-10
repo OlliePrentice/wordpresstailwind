@@ -328,3 +328,27 @@ function get_mixed_field($name = '') {
     return $field;
 
 }
+
+/**
+ * Get markup for an inline SVG file. Files start from the path `dist/images/svg`
+ *
+ * @example echo get_inline_svg( 'icons/share.svg' )
+ *
+ * @param  string  $filename  SVG filename, including extension and any subfolders
+ *
+ * @return string  SVG file contents. On error, returns a comment string with the invalid path
+ */
+function get_inline_svg( $filename )
+{
+	$svg_dir  = get_template_directory() . '/dist/images/svg/';
+	$svg_path = wp_normalize_path( $svg_dir . $filename );
+
+	if ( file_exists( $svg_path ) )
+	{
+		return file_get_contents( $svg_path );
+	}
+	else
+	{
+		return '<!--SVG_ERROR: File was not found, with path: ' . $svg_path . '-->';
+	}
+}

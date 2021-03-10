@@ -35,6 +35,7 @@ add_action('wp_enqueue_scripts', function() {
     }
 
     wp_enqueue_style('style', get_stylesheet_directory_uri() . '/public/styles/style.css', false, '1.0.0', 'all');
+    wp_enqueue_style('tailwind', get_stylesheet_directory_uri() . '/public/styles/tailwind.css', false, '1.0.0', 'all');
 
     wp_localize_script('custom', 'theme_params', array(
         'ajaxurl' => admin_url('admin-ajax.php'), // WordPress AJAX
