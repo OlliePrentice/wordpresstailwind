@@ -259,7 +259,7 @@ function get_terms_string($id, $taxonomy, $parent = true)
 function padding_classes()
 {
 
-    $padding_options = get_field('padding_options');
+    $padding_options = get_field('padding_options') ? get_field('padding_options') : [];
 
     $classes_string = ' block-space';
 
@@ -340,7 +340,7 @@ function get_mixed_field($name = '') {
  */
 function get_inline_svg( $filename )
 {
-	$svg_dir  = get_template_directory() . '/dist/images/svg/';
+	$svg_dir  = get_template_directory() . '/public/images/svg/';
 	$svg_path = wp_normalize_path( $svg_dir . $filename );
 
 	if ( file_exists( $svg_path ) )
