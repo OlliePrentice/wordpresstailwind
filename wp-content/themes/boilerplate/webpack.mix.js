@@ -5,7 +5,7 @@ mix.disableSuccessNotifications();
 mix.setPublicPath('public');
 mix.setResourceRoot('../');
 mix.sourceMaps(false, 'source-map');
-// mix.browserSync('localhost:8000');
+mix.browserSync('localhost:8000');
 
 mix.sass('./assets/styles/style.scss', 'styles/style.css')
     .options({

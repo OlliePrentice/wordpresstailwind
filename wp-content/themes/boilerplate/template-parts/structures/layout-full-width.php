@@ -11,6 +11,6 @@ $classes[] = padding_classes();
 
 ?>
 
-<section id="<?php echo $id; ?>" class="py-8 md:py-20 px-4 <?php echo 'block-' . $slug; ?>">
-        <?php include( get_theme_file_path( "/template-parts/blocks/{$slug}.php" ) ); ?>
+<section id="<?php echo $id; ?>" class="<?php echo implode( ' ', $classes ); ?> <?php echo 'block-' . $slug; ?>">
+    <?php include( get_theme_file_path( "/template-parts/blocks/{$slug}.php" ) ); ?>
 </section>

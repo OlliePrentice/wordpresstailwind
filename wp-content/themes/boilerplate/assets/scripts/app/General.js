@@ -7,7 +7,7 @@ function General() {
 
     $.fn.matchHeight._afterUpdate = function(event, groups) {
         window.dispatchEvent(resizeEvent);
-    }
+    };
 }
 
 export default General;

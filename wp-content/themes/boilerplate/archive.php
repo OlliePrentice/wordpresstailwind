@@ -2,34 +2,26 @@
 
 get_header();
 
-$_post_type = get_queried_object();
+$post_type = get_queried_object();
+$type_name = $post_type->name;
 
-if(is_tax() || is_category() || is_tag()) {
-	$tax_obj = get_taxonomy($_post_type->taxonomy);
-	$_post_type->name = $tax_obj->object_type[0];
+if ( is_tax() || is_category() || is_tag() ) {
+	$tax_obj = get_taxonomy( $post_type->taxonomy );
+	$type_name = $tax_obj->object_type[0];
 }
 
-$args = [
-	'post_type' => 'page',
-	'meta_query' => [
-		[
-			'key' => 'page_archive',
-			'value' => $_post_type->name
-		]
-	]
-];
-
-$archive_query = new WP_Query($args);
-
-if($archive_query->have_posts()) {
-	while($archive_query->have_posts()) {
-		$archive_query->the_post();
-
-		$_id = $archive_query->post->ID;
-
-		the_content($_id);
-	}
-	wp_reset_postdata();
+if ( $type_name === 'post' ) {
+    $content_post = get_post(get_option( 'page_for_posts' ));
+} else {
+    $content_post = get_field($type_name, 'options');
 }
+
+if ( $content_post ) {
+    $content = apply_filters( 'the_content', $content_post->post_content );
+    $content = str_replace( ']]>', ']]&gt;', $content );
+
+    echo $content;
+}
+
 
 get_footer();

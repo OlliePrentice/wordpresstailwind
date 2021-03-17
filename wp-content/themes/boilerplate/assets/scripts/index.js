@@ -1,6 +1,7 @@
 // Polyfills
 import "core-js/stable/promise";
 import "core-js/stable/number";
+import "core-js/stable/array";
 import "regenerator-runtime/runtime";
 
 // Utilities
@@ -17,36 +18,17 @@ import Sliders from './app/Sliders';
 import General from './app/General';
 
 
-$(async () => {
 
-    function windowHashChecked() {
-        return new Promise(resolve => {
-            setTimeout(() => {
-                if (window.location.hash) {
-                    window.scrollTo(0, 0);
-                }
-                resolve('resolved');
-            }, 1);
-        });
-    }
-
-    await windowHashChecked();
-
-
-    Sliders();
-
-
-});
-
-$(window).on('load', function() {
+window.onload = () => {
 
     // Load Imports
     General();
     Menu();
     ScrollTo();
+    Sliders();
 
     AOS.init({
         once: true
     });
 
-});
+};

@@ -18,34 +18,35 @@ add_action('acf/init', function () {
     if (function_exists('acf_register_block')) {
 
         acf_register_block_type([
-            'name' => 'full-container',
-            'title' => __('Full Container'),
-            'mode' => 'preview',
-            'render_template' => '/template-parts/containers/full-container.php',
-            'category' => 'layout',
-            'icon' => 'admin-comments',
-            'supports' => array(
-                'align' => false,
-                'multiple' => true,
-                'jsx' => true,
-                'anchor' => true
+            'name'              => 'full-container',
+            'title'             => __('Full Container'),
+            'mode'              => 'preview',
+            'render_template'   => '/template-parts/containers/full-container.php',
+            'category'          => 'layout',
+            'icon'              => 'admin-comments',
+            'supports'          => array(
+                'align'         => false,
+                'multiple'      => true,
+                'jsx'           => true,
+                'anchor'        => true
             ),
 
         ]);
 
         acf_register_block([
-            'name' => 'hero',
-            'title' => __('Hero'),
-            'description' => __('Title, background image and CTA\'s.'),
-            'render_callback' => 'theme_block_render_callback',
-            'category' => 'page-blocks',
-            'keywords' => ['Hero'],
-            'mode' => 'edit',
-            'supports' => array(
-                'align' => false,
-                'multiple' => true,
-                'jsx' => true,
-                'anchor' => true
+            'name'              => 'hero',
+            'title'             => __('Hero'),
+            'description'       => __('Title, background image and CTA\'s.'),
+            'render_callback'   => 'theme_block_render_callback',
+            'category'          => 'page-blocks',
+            'keywords'          => ['Hero'],
+            'mode'              => 'edit',
+            'layout'            => true,
+            'supports'          => array(
+                'align'         => false,
+                'multiple'      => true,
+                'jsx'           => true,
+                'anchor'        => true
             ),
         ]);
     }

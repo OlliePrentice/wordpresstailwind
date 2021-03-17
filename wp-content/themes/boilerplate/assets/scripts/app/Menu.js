@@ -1,11 +1,9 @@
 function Menu() {
-    const $masthead = $(".masthead"),
+    const $masthead = $(".main-header"),
         $burger = $(".burger"),
         $mobileNav = $(".mobile-navigation"),
         $closeModal = $('.close-modal'),
         $searchTrigger = $('.search-trigger');
-
-    let animating = false;
 
     $('a[href="#"]').on('click', (e) => {
         e.preventDefault();
@@ -53,19 +51,6 @@ function Menu() {
         }
     });
 
-    $closeModal.on('click', (e) => {
-        e.preventDefault();
-
-        //Elements to Close
-    });
-
-    $searchTrigger.on('click', (e) => {
-        e.preventDefault();
-
-        //Search Modal
-    });
-
-
     function menuItemStates($this, type) {
 
         if(type === 'leave') {
@@ -101,20 +86,6 @@ function Menu() {
     $masthead.find('.menu-item-has-children').on('mouseleave', (e) => {
         menuItemStates($(e.currentTarget), 'leave');
     });
-
-    // const updateScroll = () => {
-    //     if (updateScroll._tick) {
-    //         cancelAnimationFrame(updateScroll._tick);
-    //     }
-    //
-    //     updateScroll._tick = requestAnimationFrame(function () {
-    //         updateScroll._tick = null;
-    //
-    //     });
-    // };
-    //
-    // window.addEventListener('scroll', updateScroll);
-    // updateScroll();
 
 }
 

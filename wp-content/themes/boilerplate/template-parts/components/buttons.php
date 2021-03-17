@@ -5,8 +5,6 @@
 
             if (!empty($button['link'])) {
 
-                //$button['link']['classes'] = !empty($button['style']) ? $button['style'] : '';
-                $button['link']['classes'] .= !empty($button['wide']) ? ' btn--wide' : '';
                 $button['link']['icon'] = !empty($button['icon']) ? $button['icon'] : '';
                 $button['link']['attr'] = !empty($button['download']) ? 'download' : '';
 

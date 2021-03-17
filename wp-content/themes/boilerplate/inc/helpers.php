@@ -259,29 +259,21 @@ function get_terms_string($id, $taxonomy, $parent = true)
 function padding_classes()
 {
 
-    $padding_options = get_field('padding_options') ? get_field('padding_options') : [];
+    $padding_options = get_field('padding_options');
 
-    $classes_string = ' block-space';
+    $classes_string = ' py-6 md:py-10 lg:py-12';
 
     if($padding_options) {
 
-        if (in_array('Extra Top Padding', $padding_options)) {
-            $classes_string .= ' block-space--extra-top';
+        if (in_array('No Top Padding', (array)$padding_options)) {
+            $classes_string = ' pb-6 md:pb-10 lg:pb-12';
         }
 
-        if (in_array('Extra Bottom Padding', $padding_options)) {
-            $classes_string .= ' block-space--extra-bottom';
+        if (in_array('No Bottom Padding', (array)$padding_options)) {
+            $classes_string = ' pt-6 md:pt-10 lg:pt-12';
         }
 
-        if (in_array('No Top Padding', $padding_options)) {
-            $classes_string .= ' block-space--no-top';
-        }
-
-        if (in_array('No Bottom Padding', $padding_options)) {
-            $classes_string .= ' block-space--no-bottom';
-        }
-
-        if (in_array('No Padding', $padding_options)) {
+        if (in_array('No Top Padding', (array)$padding_options) && in_array('No Bottom Padding', (array)$padding_options)) {
             $classes_string = '';
         }
     }
@@ -340,7 +332,7 @@ function get_mixed_field($name = '') {
  */
 function get_inline_svg( $filename )
 {
-	$svg_dir  = get_template_directory() . '/public/images/svg/';
+	$svg_dir  = get_template_directory() . '/assets/images/svgs/';
 	$svg_path = wp_normalize_path( $svg_dir . $filename );
 
 	if ( file_exists( $svg_path ) )
@@ -351,4 +343,47 @@ function get_inline_svg( $filename )
 	{
 		return '<!--SVG_ERROR: File was not found, with path: ' . $svg_path . '-->';
 	}
+}
+
+
+/**
+ * @param $_post_type
+ * @param $page_obj
+ * @return array
+ */
+function get_url_tax_query($_post_type, $page_obj) {
+
+    $_taxonomies = get_object_taxonomies($_post_type);
+
+    $tax_query = [];
+
+    if (!empty($page_obj->taxonomy)) {
+
+        $tax_query[] = [
+            'taxonomy' => $page_obj->taxonomy,
+            'terms' => [$page_obj->term_id]
+        ];
+    }
+
+    if ($_taxonomies) {
+        foreach ($_taxonomies as $_taxonomy) {
+
+            if (isset($_GET['_' . $_taxonomy]) && $_GET['_' . $_taxonomy] != '') {
+
+                $tax_query[] = [
+                    'taxonomy' => $_taxonomy,
+                    'terms' => $_GET['_' . $_taxonomy]
+                ];
+
+            }
+
+        }
+    }
+
+    return $tax_query;
+}
+
+
+function add_quotes($str) {
+    return sprintf('"%s"', $str);
 }

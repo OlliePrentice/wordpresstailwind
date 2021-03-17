@@ -2,27 +2,10 @@
 
 get_header();
 
+$content_post = get_post(get_option( 'page_for_posts' ));
+$content = apply_filters('the_content', $content_post->post_content);
+$content = str_replace(']]>', ']]&gt;', $content);
 
-$args = [
-	'post_type' => 'page',
-	'meta_query' => [
-		[
-			'key' => 'page_archive',
-			'value' => 'post'
-		]
-	]
-];
+echo $content;
 
-$archive_query = new WP_Query($args);
-
-?>
-
-<?php if ($archive_query->have_posts()) : ?>
-	<?php while ($archive_query->have_posts()) : $archive_query->the_post(); ?>
-		<?php $_id = $archive_query->post->ID; ?>
-		<?php the_content($_id); ?>
-	<?php endwhile; ?>
-	<?php wp_reset_postdata(); ?>
-<?php endif; ?>
-
-<?php get_footer();
+get_footer();
