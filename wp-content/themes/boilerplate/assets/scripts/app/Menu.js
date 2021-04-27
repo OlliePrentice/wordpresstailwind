@@ -1,9 +1,7 @@
 function Menu() {
-    const $masthead = $(".main-header"),
+    const mainHeader = document.querySelector(".main-header"),
         $burger = $(".burger"),
-        $mobileNav = $(".mobile-navigation"),
-        $closeModal = $('.close-modal'),
-        $searchTrigger = $('.search-trigger');
+        $mobileNav = $(".mobile-navigation");
 
     $('a[href="#"]').on('click', (e) => {
         e.preventDefault();
@@ -19,7 +17,6 @@ function Menu() {
         } else {
             $mobileNav.removeClass('active');
             $mobileNav.removeClass('sub-open');
-            $masthead.removeClass("active");
             $mobileNav.find('ul').removeClass('current active');
         }
     });
@@ -70,21 +67,27 @@ function Menu() {
             }
         }
 
-        if($('.masthead .menu-item-has-children.active').length) {
-            $masthead.addClass('active-hovered');
+        let activeItem = false;
+
+        activeItem = document.querySelectorAll('.menu-item-has-children').some(el => el.classList.contains('active')); 
+
+        if(activeItem) {
+            mainHeader.classList.add('active-hovered');
         } else {
-            $masthead.removeClass('active-hovered');
+            mainHeader.classList.remove('active-hovered');
         }
+
     }
 
 
-    $masthead.find('.menu-item-has-children').on('mouseenter', (e) => {
-        //const $this = $(e.currentTarget)
-        menuItemStates($(e.currentTarget), 'enter');
-    });
+    mainHeader.querySelectorAll('.menu-item-has-children').forEach((el) => {
+        el.addEventListener('mouseenter', e => {
+            menuItemStates($(e.currentTarget), 'enter');
+        });
 
-    $masthead.find('.menu-item-has-children').on('mouseleave', (e) => {
-        menuItemStates($(e.currentTarget), 'leave');
+        el.addEventListener('mouseleave', e => {
+            menuItemStates($(e.currentTarget), 'leave');
+        });
     });
 
 }
